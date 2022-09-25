@@ -6,14 +6,6 @@ body,
     font-family: 'Inter', sans-serif;
 }
 
-html {
-    box-sizing: border-box;
-}
-
-* {
-    box-sizing: inherited;
-}
-
 .header h1 {
     font-size: 2.5em;
     font-weight: 800;
@@ -28,15 +20,15 @@ html {
     text-decoration: none;
 }
 
-.parent-container {
-    min-height: 100vh;
-}
-
 .main-container {
     max-width: 550px;
     height: 100%;
+    min-height: 100vh;
     margin: 0 auto;
-    border: 1px solid #404040;
+    border: 1px solid #DFDDDD;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .header {
@@ -44,11 +36,10 @@ html {
     background-image: url('../img/header-img.jpg');
     background-size: cover;
     background-position: 0% 20%;
-    height: 30vh;
     color: whitesmoke;
     background-color: #404040;
     background-blend-mode: overlay;
-    padding: 2em;
+    padding: 5em 2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,7 +63,6 @@ html {
     left: 7.5%;
     width: 85%;
     transform: translateY(50%);
-
 }
 
 .search-bar i {
@@ -111,8 +101,6 @@ html {
 .main-content {
     padding: 2em;
     padding-top: 3em;
-    min-height: 65vh;
-    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,6 +130,10 @@ html {
 .film-container {
     padding: 2em 0;
     border-bottom: 1.5px solid #E5E7EB;
+}
+
+.film-container:last-child {
+    border: 0;
 }
 
 .result-film {
@@ -226,7 +218,15 @@ a {
 /* footer */
 
 footer {
-    height: 5vh;
     width: 100%;
     background-color: #DFDDDD;
+    font-size: 12px;
+    color: #374151;
+    text-align: center;
+    padding: .5em;
+}
+
+footer a {
+    color: #9CA3AF;
+    text-decoration: none;
 }

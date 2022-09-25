@@ -11,6 +11,11 @@ const dataPlaceholder = document.getElementsByClassName('data-placeholder')[0]
 
 
 searchBtn.addEventListener('click', searchFilms)
+searchInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        searchFilms()
+    }
+})
 
 
 function searchFilms() {

@@ -15,33 +15,39 @@
 
 <body>
 
-    <div class="parent-container">
-        <div class="main-container">
-            <header>
-                <div class="header">
-                    <div class="links">
-                        <h1>Find your film</h1>
-                        <h4><a href="watchlist.html" id="watchlist-link">My Watchlist</a></h4>
-                    </div>
-                    <div class="search-bar">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" id="search-input">
-                        <div id="search-btn">Search</div>
-                    </div>
-                </div>
-            </header>
 
-            <main>
-                <div class="main-content">
-                    <div class="data-placeholder">
-                        <i class="fa-solid fa-film"></i>
-                        <p>Start exploring</p>
-                    </div>
+    <div class="main-container">
+        <header>
+            <div class="header">
+                <div class="links">
+                    <h1>Find your film</h1>
+                    <h4><a href="watchlist.html" id="watchlist-link">My Watchlist</a></h4>
+                </div>
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-input">
+                    <div id="search-btn">Search</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <main role="main">
+                <div class="data-placeholder">
+                    <i class="fa-solid fa-film"></i>
+                    <p>Start exploring</p>
                 </div>
             </main>
-            <footer></footer>
         </div>
+
+        <footer>
+            <p>Built with <a href="http://www.omdbapi.com/" target="_blank">OMDB API</a></p>
+            <p>Header photo <a
+                    href="https://unsplash.com/photos/THJJRUhNlEc?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">
+                    by Andre Tan</a></p>
+        </footer>
     </div>
+
     <script src="index.js" type="module"></script>
 
 </body>
