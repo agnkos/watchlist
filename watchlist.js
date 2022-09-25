@@ -1,4 +1,4 @@
-import { getFilmHtml, manageWatchlist } from "./utils.js"
+import { getFilmHtml, manageWatchlist, manageIcons } from "./utils.js"
 
 const myWatchlistLocalStorage = JSON.parse(localStorage.getItem('myWatchlist'))
 const watchlist = document.getElementById('watchlist')
@@ -14,6 +14,7 @@ window.onload = function watchlistHtml() {
                 .then(data => {
                     const watchlistHtmlEl = getFilmHtml(data)
                     watchlist.innerHTML += watchlistHtmlEl
+                    manageIcons(filmId)
                 })
                 .then(() => {
                     Array.from(document.querySelectorAll('.manage')).forEach(el => {

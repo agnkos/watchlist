@@ -30,7 +30,16 @@ function getFilmHtml(film) {
 
 let myWatchlist = JSON.parse(localStorage.getItem('myWatchlist')) || []
 
+function manageIcons(id) {
+    if (myWatchlist.includes(id)) {
+        document.getElementById(id).src = "img/remove.png"
+        document.getElementById(`text-icon${id}`).innerHTML = 'Remove'
+        document.getElementById(id).classList.remove('add')
+    }
+}
+
 function manageWatchlist(id) {
+
     if (document.getElementById(id).classList.contains('add')) {
         myWatchlist.push(id)
         localStorage.setItem('myWatchlist', JSON.stringify(myWatchlist))
@@ -47,4 +56,4 @@ function manageWatchlist(id) {
     }
 }
 
-export { getFilmHtml, manageWatchlist }
+export { getFilmHtml, manageWatchlist, manageIcons }

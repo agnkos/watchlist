@@ -1,7 +1,7 @@
-// Here is your key: 9ac12ad4
+
 // http://www.omdbapi.com/
 
-import { manageWatchlist, getFilmHtml } from './utils.js'
+import { manageWatchlist, getFilmHtml, manageIcons } from './utils.js'
 
 const searchBtn = document.getElementById('search-btn')
 const searchInput = document.getElementById('search-input')
@@ -32,7 +32,8 @@ function searchFilms() {
                             // console.log(data)
                             const html = getFilmHtml(data)
                             mainContent.innerHTML += html
-                            // console.log(film.imdbID)
+                            console.log(film.imdbID)
+                            manageIcons(film.imdbID)
                             // console.log(document.getElementById(film.imdbID))
                             // console.log(document.querySelectorAll('.icon'))
                         }
@@ -44,12 +45,22 @@ function searchFilms() {
                                     manageWatchlist(el.id)
                                 )
                             }
+
+
                             )
                         })
                 )
             }
         })
 }
+
+
+
+
+// if (myWatchlist.includes(film.imdbID)) {
+//     document.getElementById(film.imdbID).classList.remove('add')
+//     manageWatchlist(film.imdbID)
+// }
 
 
 
