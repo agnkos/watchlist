@@ -19,7 +19,7 @@ searchInput.addEventListener('keypress', function (e) {
 
 
 function searchFilms() {
-    fetch(`http://www.omdbapi.com/?apikey=9ac12ad4&s=${searchInput.value}&plot=short&r=json`)
+    fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&s=${searchInput.value}&plot=short&r=json`)
         .then(res => res.json())
         .then(data => {
             const resultsArray = data.Search
@@ -31,7 +31,7 @@ function searchFilms() {
                 // console.log(resultsArray)
                 mainContent.innerHTML = ''
                 resultsArray.map(
-                    film => fetch(`http://www.omdbapi.com/?apikey=9ac12ad4&i=${film.imdbID}&plot=short&r=json`)
+                    film => fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&i=${film.imdbID}&plot=short&r=json`)
                         .then(res => res.json())
                         .then(data => {
                             // console.log(data)

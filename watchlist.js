@@ -9,7 +9,7 @@ window.onload = function watchlistHtml() {
     if (myWatchlistLocalStorage.length > 0) {
         watchlist.innerHTML = ''
         myWatchlistLocalStorage.map(filmId => {
-            fetch(`http://www.omdbapi.com/?apikey=9ac12ad4&i=${filmId}&plot=short&r=json`)
+            fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&i=${filmId}&plot=short&r=json`)
                 .then(res => res.json())
                 .then(data => {
                     const watchlistHtmlEl = getFilmHtml(data)
