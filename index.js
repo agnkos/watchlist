@@ -22,7 +22,9 @@ function searchFilms() {
     fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&s=${searchInput.value}&plot=short&r=json`)
         .then(res => res.json())
         .then(data => {
+            console.log(data)
             const resultsArray = data.Search
+            console.log(resultsArray)
             if (resultsArray === undefined) {
                 dataPlaceholder.innerHTML = `
                 <p>Unable to find what you're looking for. Please try another search.</p>

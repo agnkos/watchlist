@@ -8,7 +8,7 @@ window.addEventListener('load', watchlistHtml)
 
 
 function watchlistHtml() {
-    if (myWatchlistLocalStorage) {
+    if (myWatchlistLocalStorage.length) {
         watchlist.innerHTML = ''
         myWatchlistLocalStorage.map(filmId => {
             fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&i=${filmId}&plot=short&r=json`)
@@ -44,5 +44,6 @@ function removeFromWatchlist(id) {
     let index = myWatchlistLocalStorage.indexOf(id)
     myWatchlistLocalStorage.splice(index, 1)
     localStorage.setItem('myWatchlist', JSON.stringify(myWatchlistLocalStorage))
+    console.log(myWatchlistLocalStorage)
     watchlistHtml()
 }
