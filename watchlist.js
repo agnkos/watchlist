@@ -8,7 +8,7 @@ window.addEventListener('load', watchlistHtml)
 
 
 function watchlistHtml() {
-    if (myWatchlistLocalStorage.length > 0) {
+    if (myWatchlistLocalStorage) {
         watchlist.innerHTML = ''
         myWatchlistLocalStorage.map(filmId => {
             fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&i=${filmId}&plot=short&r=json`)
