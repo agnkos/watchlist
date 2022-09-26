@@ -4,8 +4,10 @@ const myWatchlistLocalStorage = JSON.parse(localStorage.getItem('myWatchlist'))
 const watchlist = document.getElementById('watchlist')
 
 
-window.onload = function watchlistHtml() {
-    console.log(myWatchlistLocalStorage)
+window.addEventListener('load', watchlistHtml)
+
+
+function watchlistHtml() {
     if (myWatchlistLocalStorage.length > 0) {
         watchlist.innerHTML = ''
         myWatchlistLocalStorage.map(filmId => {
@@ -18,14 +20,29 @@ window.onload = function watchlistHtml() {
                 })
                 .then(() => {
                     Array.from(document.querySelectorAll('.manage')).forEach(el => {
-                        console.log(el.id)
                         el.addEventListener('click', () =>
-                            manageWatchlist(el.id)
+                            removeFromWatchlist(el.id)
                         )
                     }
                     )
                 })
         })
+    } else {
+        watchlist.innerHTML = `
+        <div class="data-placeholder">
+            <p>Your watchlist is looking a little empty...</p>
+            <a href="index.html" class="link-placeholder">
+                <img src="img/placeholder-add.png" alt="">
+                 <p>Let's add some movies!</p>
+            </a>
+        </div>
+        `
     }
 }
 
+function removeFromWatchlist(id) {
+    let index = myWatchlistLocalStorage.indexOf(id)
+    myWatchlistLocalStorage.splice(index, 1)
+    localStorage.setItem('myWatchlist', JSON.stringify(myWatchlistLocalStorage))
+    watchlistHtml()
+}
