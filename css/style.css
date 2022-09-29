@@ -15,6 +15,7 @@ body,
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /* position: relative; */
 }
 
 /* header */
@@ -264,4 +265,24 @@ footer {
 footer a {
     color: #9CA3AF;
     text-decoration: none;
+}
+
+/* button go top */
+
+/* .fa-circle-arrow-up::before,
+.fa-circle-arrow-up::after, */
+.fa-circle-arrow-up {
+    font-size: 3rem;
+    color: #9CA3AF;
+    margin-left: auto;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    position: sticky;
+    bottom: 20px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
 }

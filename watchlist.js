@@ -2,6 +2,7 @@ import { getFilmHtml, manageWatchlist, manageIcons } from "./utils.js"
 
 const myWatchlistLocalStorage = JSON.parse(localStorage.getItem('myWatchlist'))
 const watchlist = document.getElementById('watchlist')
+const btnUp = document.getElementById('btn-up')
 
 
 window.addEventListener('load', watchlistHtml)
@@ -46,4 +47,12 @@ function removeFromWatchlist(id) {
     localStorage.setItem('myWatchlist', JSON.stringify(myWatchlistLocalStorage))
     console.log(myWatchlistLocalStorage)
     watchlistHtml()
+}
+
+
+if (window.scrollY = 210) {
+    btnUp.classList.add('visible')
+    btnUp.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behaviour: 'smooth' })
+    })
 }
