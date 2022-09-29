@@ -15,7 +15,6 @@ body,
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* position: relative; */
 }
 
 /* header */
@@ -147,6 +146,7 @@ body,
 /* film box */
 
 .film-container {
+    width: 100%;
     padding: 2em 0;
     border-bottom: 1.5px solid #E5E7EB;
 }
@@ -168,6 +168,7 @@ body,
 }
 
 .film-img {
+    width: 100px;
     max-width: 100px;
 }
 
@@ -269,8 +270,7 @@ footer a {
 
 /* button go top */
 
-/* .fa-circle-arrow-up::before,
-.fa-circle-arrow-up::after, */
+
 .fa-circle-arrow-up {
     font-size: 3rem;
     color: #9CA3AF;
@@ -281,6 +281,7 @@ footer a {
     bottom: 20px;
     cursor: pointer;
     opacity: 0;
+    transition: opacity 500ms;
 }
 
 .visible {

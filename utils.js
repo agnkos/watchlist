@@ -1,11 +1,14 @@
 
 
 function getFilmHtml(film) {
-    const { Poster, Title, Runtime, Genre, imdbRating, Plot, imdbID } = film
+    const { Title, Runtime, Genre, imdbRating, Plot, imdbID } = film
+    if (film.Poster === "N/A") {
+        film.Poster = "./img/film.png"
+    }
     return `
     <div class="film-container">
         <div class="result-film">
-            <img class="film-img" src=${Poster}>
+            <img class="film-img" src=${film.Poster}>
             <div class="film-info">
                 <div class="film-title">
                     <h3>${Title}</h3> 
@@ -57,4 +60,17 @@ function manageWatchlist(id) {
     }
 }
 
-export { getFilmHtml, manageWatchlist, manageIcons }
+function goToTopButton() {
+    const btnUp = document.getElementById('btn-up')
+    if (window.scrollY >= 210) {
+        btnUp.classList.add('visible')
+        btnUp.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behaviour: 'smooth' })
+        })
+    }
+    else {
+        btnUp.classList.remove('visible')
+    }
+}
+
+export { getFilmHtml, manageWatchlist, manageIcons, goToTopButton }
