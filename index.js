@@ -36,7 +36,6 @@ function searchFilms() {
                             const html = getFilmHtml(data)
                             mainContent.innerHTML += html
                             manageIcons(film.imdbID)
-                            console.log(page)
                         }
                         )
                         .then(() => {
