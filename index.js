@@ -27,7 +27,9 @@ function searchFilms() {
                 dataPlaceholder.innerHTML = `
                 <p>Unable to find what you're looking for. Please try another search.</p>
             `} else {
-                mainContent.innerHTML = ''
+                if (page === 1) {
+                    mainContent.innerHTML = ''
+                }
                 resultsArray.map(
                     film => fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&i=${film.imdbID}&plot=short&r=json`)
                         .then(res => res.json())
@@ -54,31 +56,31 @@ window.onscroll = function (ev) {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
         if (page < numberOfPages) {
             page += 1;
-            loadMoreFilms()
+            searchFilms()
         }
     }
     goToTopButton()
 }
 
-function loadMoreFilms() {
-    fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&s=${searchInput.value}&plot=short&r=json&page=${page}`)
-        .then(res => res.json())
-        .then(data => {
-            data.Search.map(film => fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&i=${film.imdbID}&plot=short&r=json`)
-                .then(res => res.json())
-                .then(data => {
-                    const html = getFilmHtml(data)
-                    mainContent.innerHTML += html
-                    manageIcons(film.imdbID)
-                }
-                )
-                .then(() => {
-                    Array.from(document.querySelectorAll('.manage')).forEach(el => {
-                        el.addEventListener('click', () =>
-                            manageWatchlist(el.id)
-                        )
-                    }
-                    )
-                }))
-        })
-}
+// function loadMoreFilms() {
+//     fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&s=${searchInput.value}&plot=short&r=json&page=${page}`)
+//         .then(res => res.json())
+//         .then(data => {
+//             data.Search.map(film => fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&i=${film.imdbID}&plot=short&r=json`)
+//                 .then(res => res.json())
+//                 .then(data => {
+//                     const html = getFilmHtml(data)
+//                     mainContent.innerHTML += html
+//                     manageIcons(film.imdbID)
+//                 }
+//                 )
+//                 .then(() => {
+//                     Array.from(document.querySelectorAll('.manage')).forEach(el => {
+//                         el.addEventListener('click', () =>
+//                             manageWatchlist(el.id)
+//                         )
+//                     }
+//                     )
+//                 }))
+//         })
+// }
