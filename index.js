@@ -7,7 +7,7 @@ const searchBtn = document.getElementById('search-btn')
 const searchInput = document.getElementById('search-input')
 const mainContent = document.getElementsByClassName('main-content')[0]
 const dataPlaceholder = document.getElementsByClassName('data-placeholder')[0]
-let page = 1
+let page
 let numberOfPages
 
 searchBtn.addEventListener('click', searchFilms)
@@ -18,10 +18,12 @@ searchInput.addEventListener('keypress', function (e) {
 })
 
 function searchFilms() {
+    page = 1
     fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&s=${searchInput.value}&plot=short&r=json&page=${page}`)
         .then(res => res.json())
         .then(data => {
             const resultsArray = data.Search
+            console.log(data.totalResults)
             numberOfPages = Math.ceil(data.totalResults / 10)
             if (resultsArray === undefined) {
                 dataPlaceholder.innerHTML = `
@@ -35,6 +37,7 @@ function searchFilms() {
                             const html = getFilmHtml(data)
                             mainContent.innerHTML += html
                             manageIcons(film.imdbID)
+                            console.log(page)
                         }
                         )
                         .then(() => {
@@ -52,7 +55,9 @@ function searchFilms() {
 
 window.onscroll = function (ev) {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        console.log('bottom', page)
         if (page < numberOfPages) {
+            console.log(page, numberOfPages)
             page += 1;
             loadMoreFilms()
         }
