@@ -62,25 +62,3 @@ window.onscroll = function (ev) {
     goToTopButton()
 }
 
-// function loadMoreFilms() {
-//     fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&s=${searchInput.value}&plot=short&r=json&page=${page}`)
-//         .then(res => res.json())
-//         .then(data => {
-//             data.Search.map(film => fetch(`https://www.omdbapi.com/?apikey=9ac12ad4&i=${film.imdbID}&plot=short&r=json`)
-//                 .then(res => res.json())
-//                 .then(data => {
-//                     const html = getFilmHtml(data)
-//                     mainContent.innerHTML += html
-//                     manageIcons(film.imdbID)
-//                 }
-//                 )
-//                 .then(() => {
-//                     Array.from(document.querySelectorAll('.manage')).forEach(el => {
-//                         el.addEventListener('click', () =>
-//                             manageWatchlist(el.id)
-//                         )
-//                     }
-//                     )
-//                 }))
-//         })
-// }

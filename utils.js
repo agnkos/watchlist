@@ -1,5 +1,3 @@
-
-
 function getFilmHtml(film) {
     const { Title, Runtime, Genre, imdbRating, Plot, imdbID } = film
     if (film.Poster === "N/A") {
@@ -73,4 +71,4 @@ function goToTopButton() {
     }
 }
 
-export { getFilmHtml, manageWatchlist, manageIcons, goToTopButton }
+export { getFilmHtml, manageWatchlist, manageIcons, goToTopButton, myWatchlist }
