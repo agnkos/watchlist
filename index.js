@@ -23,7 +23,6 @@ function searchFilms() {
         .then(res => res.json())
         .then(data => {
             const resultsArray = data.Search
-            console.log(data.totalResults)
             numberOfPages = Math.ceil(data.totalResults / 10)
             if (resultsArray === undefined) {
                 dataPlaceholder.innerHTML = `
@@ -55,9 +54,7 @@ function searchFilms() {
 
 window.onscroll = function (ev) {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        console.log('bottom', page)
         if (page < numberOfPages) {
-            console.log(page, numberOfPages)
             page += 1;
             loadMoreFilms()
         }
