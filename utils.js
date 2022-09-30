@@ -73,4 +73,4 @@ function goToTopButton() {
     }
 }
 
-export { getFilmHtml, manageWatchlist, manageIcons, goToTopButton }
+export { getFilmHtml, manageWatchlist, manageIcons, goToTopButton, myWatchlist }
